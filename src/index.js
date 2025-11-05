@@ -40,17 +40,9 @@ app.post('/photo',uploader.single('incomingFile'),async (req,res)=>{
     return res.json({message : "Image Uploaded"});
 });
 
-app.listen(serverConfig.PORT,async ()=>{
-    await connectDB();
-    console.log(`Server started at port ${serverConfig.PORT} ...`);
+const PORT =serverConfig.PORT || 3000;
 
-    // const newUser = await User.create({
-    //     email : 'abhs@gmail.com',
-    //     password : '123dsna',
-    //     firstName : 'Johnathnn',
-    //     lastName : 'Doedt',
-    //     mobileNumber : '6395429599',
-    // });
-    // console.log("Created new user");
-    // console.log(newUser);
+app.listen(PORT,async ()=>{
+    await connectDB();
+    console.log(`Server started at port ${PORT} ...`);
 });
