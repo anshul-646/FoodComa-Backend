@@ -40,7 +40,7 @@ app.post('/photo',uploader.single('incomingFile'),async (req,res)=>{
     return res.json({message : "Image Uploaded"});
 });
 
-const PORT =serverConfig.PORT || 3000;
+const PORT = process.env.PORT || serverConfig.PORT || 3000;
 
 app.listen(PORT,async ()=>{
     await connectDB();
